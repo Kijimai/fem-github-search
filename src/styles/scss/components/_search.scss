@@ -1,0 +1,40 @@
+.searchbar {
+  background-color: hsl($color-dark-3);
+  padding: 0.65rem 1rem;
+  border-radius: 1.5rem;
+
+  &__form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 1.5rem;
+    padding-left: 1.6rem;
+    
+    .search {
+      padding: 2rem 0.8rem;
+      flex-grow: 2;
+      width: 100%;
+      background-color: transparent;
+      text-overflow: ellipsis;
+      border: none;
+      color: hsl($color-white);
+      font-family: "Space Mono", sans-serif;
+
+      &::placeholder {
+        font-family: "Space Mono", sans-serif;
+        color: hsl($color-white);
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:focus:invalid {
+        &::after {
+          content: "No Results";
+          font-family: "Space Mono", sans-serif;
+        }
+      }
+    }
+  }
+}
