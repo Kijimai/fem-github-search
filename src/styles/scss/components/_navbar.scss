@@ -1,0 +1,27 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+
+  &__site-name {
+    font-size: 2.6rem;
+    font-family: "Space Mono", sans-serif;
+    text-decoration: none;
+    color: hsl($color-white);
+    font-weight: 700;
+  }
+
+  &__toggle {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Space Mono", sans-serif;
+    gap: 1.6rem;
+    background-color: transparent;
+    color: hsl($color-white);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+  }
+}

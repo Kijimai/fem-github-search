@@ -1,9 +1,11 @@
 import React from "react"
-
+import Navbar from "./Navbar"
 const Main = () => {
-  return <main>
-    
-  </main>
+  return (
+    <main>
+      <Navbar />
+    </main>
+  )
 }
 
 export default Main

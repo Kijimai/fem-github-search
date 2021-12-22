@@ -2,8 +2,10 @@ import React from 'react'
 
 const Searchbar = () => {
   return (
-    <div>
-      
+    <div className="searchbar">
+      <form action="searchbar__form">
+        <input type="text" />
+      </form>
     </div>
   )
 }

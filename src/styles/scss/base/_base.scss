@@ -13,4 +13,9 @@ html {
 
 body {
   font-family: "Space Mono", sans-serif;
+  background-color: hsl($color-dark-1);
+}
+
+main {
+  padding: 3.2rem 2.4rem;
 }
