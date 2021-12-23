@@ -1,0 +1,70 @@
+.section-dashboard {
+  padding: 3.2rem 2.4rem;
+  margin: 1.6rem 0;
+  background-color: hsl($color-dark-3);
+  border-radius: 1.5rem;
+  color: hsl($color-white);
+
+  @include responsive(reg-desk) {
+    display: flex;
+    gap: 3rem;
+  }
+
+  &__main {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+
+    @include responsive(reg-desk) {
+    }
+
+    .top {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .user-info {
+      &__name {
+        font-size: 1.6rem;
+        line-height: 1;
+      }
+
+      &__github-link {
+        color: hsl($color-primary-blue);
+        text-decoration: none;
+        font-size: 1.3rem;
+      }
+
+      &__date {
+        font-size: 1.3rem;
+      }
+    }
+
+    .user-bio {
+      p {
+        font-size: 1.3rem;
+      }
+    }
+
+    .user-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1.1rem;
+      background-color: hsl($color-dark-2);
+      text-align: center;
+      padding: 1.8rem 2rem;
+      border-radius: 1rem;
+      
+      & > * {
+        line-height: 1.6;
+      }
+
+      span {
+        font-weight: 700;
+        font-size: 1.6rem;
+        display: block;
+      }
+    }
+  }
+}

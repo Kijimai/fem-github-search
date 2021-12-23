@@ -1,5 +1,5 @@
 import React from "react"
-import toggle from "../assets/icon-sun.svg"
+import { sun, moon } from "../assets/assets"
 
 const Navbar = () => {
   return (
@@ -10,7 +10,7 @@ const Navbar = () => {
         </a>
         <button className="navbar__toggle">
           Light
-          <img src={toggle} alt="light toggle" />
+          <img src={sun} alt="light toggle" />
         </button>
       </div>
     </nav>

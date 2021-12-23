@@ -22,6 +22,35 @@ main {
   margin: 0 auto;
 }
 
+ul {
+  list-style: none;
+}
+
+.avatar {
+  height: 7rem;
+  width: 7rem;
+  border-radius: 50%;
+}
+@media (min-width: 600px) {
+  .avatar.mobile {
+    display: none;
+  }
+}
+.avatar.tab-desk {
+  display: none;
+}
+@media (min-width: 600px) {
+  .avatar.tab-desk {
+    display: block;
+  }
+}
+@media (min-width: 600px) {
+  .avatar {
+    height: 11.7rem;
+    width: 11.7rem;
+  }
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -64,7 +93,64 @@ main {
   background-color: #0077ff;
 }
 
+.section-dashboard {
+  padding: 3.2rem 2.4rem;
+  margin: 1.6rem 0;
+  background-color: #1e2b48;
+  border-radius: 1.5rem;
+  color: white;
+}
+@media (min-width: 1200px) {
+  .section-dashboard {
+    display: flex;
+    gap: 3rem;
+  }
+}
+.section-dashboard__main {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+}
+.section-dashboard__main .top {
+  display: flex;
+  gap: 2rem;
+}
+.section-dashboard__main .user-info__name {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.section-dashboard__main .user-info__github-link {
+  color: #0077ff;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+.section-dashboard__main .user-info__date {
+  font-size: 1.3rem;
+}
+.section-dashboard__main .user-bio p {
+  font-size: 1.3rem;
+}
+.section-dashboard__main .user-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+  background-color: #141d2e;
+  text-align: center;
+  padding: 1.8rem 2rem;
+  border-radius: 1rem;
+}
+.section-dashboard__main .user-stats > * {
+  line-height: 1.6;
+}
+.section-dashboard__main .user-stats span {
+  font-weight: 700;
+  font-size: 1.6rem;
+  display: block;
+}
+
 .searchbar {
+  position: relative;
   background-color: #1e2b48;
   padding: 0.65rem 1rem;
   border-radius: 1.5rem;
@@ -93,9 +179,11 @@ main {
 .searchbar__form .search:focus {
   outline: none;
 }
-.searchbar__form .search:focus:invalid::after {
-  content: "No Results";
-  font-family: "Space Mono", sans-serif;
+.searchbar__errorMsg {
+  visibility: hidden;
+  position: absolute;
+  color: #f74545;
+  font-size: 1.5rem;
 }
 
 /*# sourceMappingURL=app.css.map */
