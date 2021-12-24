@@ -12,14 +12,30 @@ html {
 }
 
 body {
+  position: relative;
+  min-height: 100vh;
   font-family: "Space Mono", sans-serif;
   background-color: #141d2e;
 }
 
 main {
   padding: 3.2rem 2.4rem;
-  max-width: 73rem;
   margin: 0 auto;
+}
+@media (min-width: 600px) {
+  main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    max-width: 57.3rem;
+  }
+}
+@media (min-width: 1200px) {
+  main {
+    max-width: 73rem;
+  }
 }
 
 ul {
@@ -77,6 +93,9 @@ ul {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+.navbar__toggle:hover {
+  color: #697c9b;
+}
 
 .btn {
   color: white;
@@ -132,21 +151,53 @@ ul {
 }
 .section-dashboard__main .user-stats {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-between;
   font-size: 1.1rem;
   background-color: #141d2e;
   text-align: center;
   padding: 1.8rem 2rem;
   border-radius: 1rem;
 }
-.section-dashboard__main .user-stats > * {
-  line-height: 1.6;
+@media (min-width: 600px) {
+  .section-dashboard__main .user-stats {
+    text-align: left;
+    justify-content: flex-start;
+  }
+}
+@media (min-width: 600px) {
+  .section-dashboard__main .user-stats__stat {
+    padding-right: 9rem;
+  }
 }
 .section-dashboard__main .user-stats span {
   font-weight: 700;
   font-size: 1.6rem;
   display: block;
+}
+.section-dashboard__main .user-links {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+  font-size: 1.3rem;
+  width: 100%;
+}
+@media (min-width: 600px) {
+  .section-dashboard__main .user-links {
+    grid-template-columns: repeat(2, minmax(20rem, 1fr));
+  }
+}
+.section-dashboard__main .user-links div {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 20rem;
+  gap: 1rem;
+  color: white;
+}
+.section-dashboard__main .user-links div svg {
+  height: 2rem;
+  width: 2rem;
+  object-fit: contain;
 }
 
 .searchbar {

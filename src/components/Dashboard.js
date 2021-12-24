@@ -1,7 +1,11 @@
 import React from "react"
 import Avatar from "./Avatar"
-
-import { location, website, twitter, company } from "../assets/assets"
+import {
+  LocationIcon,
+  TwitterIcon,
+  WebsiteIcon,
+  CompanyIcon,
+} from "./icons/Icons"
 
 const Dashboard = () => {
   return (
@@ -47,7 +51,24 @@ const Dashboard = () => {
             </p>
           </div>
         </div>
-        <div className="user-links"></div>
+        <div className="user-links">
+          <div>
+            <LocationIcon color={"white"} />
+            <p>Location</p>
+          </div>
+          <div>
+            <WebsiteIcon color={"white"} />
+            <p>Website</p>
+          </div>
+          <div>
+            <TwitterIcon color={"white"} />
+            <p>Twitter</p>
+          </div>
+          <div>
+            <CompanyIcon color={"white"} />
+            <p>Company</p>
+          </div>
+        </div>
       </div>
     </section>
   )
