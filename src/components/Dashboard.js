@@ -6,8 +6,26 @@ import {
   WebsiteIcon,
   CompanyIcon,
 } from "./icons/Icons"
+import { mockData } from "../utils/data"
+import dayjs from "dayjs"
 
 const Dashboard = () => {
+  const {
+    login,
+    name,
+    html_url: githubUrl,
+    followers,
+    following,
+    bio,
+    location,
+    company,
+    blog,
+    public_repos,
+    created_at,
+  } = mockData
+
+  console.log(dayjs("2014-06-06T04:17:00Z"))
+
   return (
     <section className="section section-dashboard">
       <Avatar mode={"tab-desk"} />
@@ -24,7 +42,7 @@ const Dashboard = () => {
             >
               @octocat
             </a>
-            <p className="user-info__date">Joined 25 Jan 2011</p>
+            <p className="user-info__date">Joined {created_at}</p>
           </div>
         </div>
         <div className="user-bio">
