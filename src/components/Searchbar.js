@@ -5,8 +5,11 @@ const Searchbar = () => {
     <>
       <div className="searchbar">
         <form onSubmit={(e) => e.preventDefault()} className="searchbar__form">
-          <img className="icon" src={search} alt="search magnifying glass" />
+          <label htmlFor="search">
+            <img className="icon" src={search} alt="search magnifying glass" />
+          </label>
           <input
+            id="search"
             className="search"
             type="email"
             placeholder="Search Github username"

@@ -22,9 +22,11 @@ const Dashboard = () => {
     blog,
     public_repos,
     created_at,
+    twitter_username,
   } = mockData
 
-  console.log(dayjs("2014-06-06T04:17:00Z"))
+  const createdDate = dayjs(created_at).format("DD MMM YYYY")
+  console.log(createdDate)
 
   return (
     <section className="section section-dashboard">
@@ -33,58 +35,72 @@ const Dashboard = () => {
         <div className="top">
           <Avatar mode={"mobile"} />
           <div className="user-info">
-            <h2 className="user-info__name">The Octocat</h2>
+            <h2 className="user-info__name">{name}</h2>
             <a
               className="user-info__github-link"
-              href="#"
+              href={githubUrl}
               target="_blank"
               rel="noreferrer noopener"
             >
-              @octocat
+              @{login}
             </a>
-            <p className="user-info__date">Joined {created_at}</p>
+            <p className="user-info__date">Joined {createdDate}</p>
           </div>
         </div>
         <div className="user-bio">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis
-            labore debitis ipsa animi, sed, tempore culpa illo saepe sequi non
-            error? Officia quidem culpa quia.
-          </p>
+          <p>{bio}</p>
         </div>
         <div className="user-stats">
           <div className="user-stats__stat">
             <p>
-              Repos <span>8</span>
+              Repos <span>{public_repos}</span>
             </p>
           </div>
           <div className="user-stats__stat">
             <p>
-              Followers <span>23000</span>
+              Followers <span>{followers}</span>
             </p>
           </div>
           <div className="user-stats__stat">
             <p>
-              Following <span>9</span>
+              Following <span>{following}</span>
             </p>
           </div>
         </div>
         <div className="user-links">
           <div>
-            <LocationIcon color={"white"} />
-            <p>Location</p>
+            <LocationIcon color={location ? `#fff` : `#697c9b`} />
+            <p className={location ? `available` : `unavailable`}>
+              {location || "Not Available"}
+            </p>
           </div>
           <div>
-            <WebsiteIcon color={"white"} />
-            <p>Website</p>
+            <WebsiteIcon color={blog ? `#fff` : `#697c9b`} />
+            <a
+              className={blog ? `available` : `unavailable`}
+              href={blog}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {blog}
+            </a>
           </div>
           <div>
-            <TwitterIcon color={"white"} />
-            <p>Twitter</p>
+            <TwitterIcon color={twitter_username ? `#fff` : `#697c9b`} />
+            <a
+              className={twitter_username ? `available` : `unavailable`}
+              href={`https://twitter.com/${twitter_username}`}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {twitter_username ? `@${twitter_username}` : "Not Available"}
+            </a>
           </div>
           <div>
-            <CompanyIcon color={"white"} />
-            <p>Company</p>
+            <CompanyIcon color={company ? `#fff` : `#697c9b`} />
+            <p className={company ? `available` : `unavailable`}>
+              {company ? `@${company}` : "Not Available"}
+            </p>
           </div>
         </div>
       </div>

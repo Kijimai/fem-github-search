@@ -8,8 +8,13 @@
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+  transition: 0.3s ease background-color;
 
   &.blue {
     background-color: hsl($color-primary-blue);
+  }
+
+  &.blue:hover {
+    background-color: hsl($color-light-blue);
   }
 }

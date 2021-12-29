@@ -38,6 +38,10 @@ main {
   }
 }
 
+a {
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
 }
@@ -47,7 +51,7 @@ ul {
   width: 7rem;
   border-radius: 50%;
 }
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .avatar.mobile {
     display: none;
   }
@@ -55,7 +59,7 @@ ul {
 .avatar.tab-desk {
   display: none;
 }
-@media (min-width: 600px) {
+@media (min-width: 900px) {
   .avatar.tab-desk {
     display: block;
   }
@@ -107,9 +111,13 @@ ul {
   border-radius: 1rem;
   border: none;
   cursor: pointer;
+  transition: 0.3s ease background-color;
 }
 .btn.blue {
   background-color: #0077ff;
+}
+.btn.blue:hover {
+  background-color: #61abff;
 }
 
 .section-dashboard {
@@ -134,20 +142,45 @@ ul {
   display: flex;
   gap: 2rem;
 }
+.section-dashboard__main .user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 .section-dashboard__main .user-info__name {
   font-size: 1.6rem;
   line-height: 1;
+}
+@media (min-width: 600px) {
+  .section-dashboard__main .user-info__name {
+    font-size: 2.6rem;
+  }
 }
 .section-dashboard__main .user-info__github-link {
   color: #0077ff;
   text-decoration: none;
   font-size: 1.3rem;
 }
+@media (min-width: 600px) {
+  .section-dashboard__main .user-info__github-link {
+    font-size: 1.6rem;
+  }
+}
 .section-dashboard__main .user-info__date {
   font-size: 1.3rem;
 }
+@media (min-width: 600px) {
+  .section-dashboard__main .user-info__date {
+    font-size: 1.5rem;
+  }
+}
 .section-dashboard__main .user-bio p {
   font-size: 1.3rem;
+}
+@media (min-width: 600px) {
+  .section-dashboard__main .user-bio p {
+    font-size: 1.5rem;
+  }
 }
 .section-dashboard__main .user-stats {
   display: flex;
@@ -160,6 +193,7 @@ ul {
 }
 @media (min-width: 600px) {
   .section-dashboard__main .user-stats {
+    font-size: 1.3rem;
     text-align: left;
     justify-content: flex-start;
   }
@@ -173,6 +207,11 @@ ul {
   font-weight: 700;
   font-size: 1.6rem;
   display: block;
+}
+@media (min-width: 600px) {
+  .section-dashboard__main .user-stats span {
+    font-size: 2.2rem;
+  }
 }
 .section-dashboard__main .user-links {
   display: grid;
@@ -194,10 +233,18 @@ ul {
   gap: 1rem;
   color: white;
 }
-.section-dashboard__main .user-links div svg {
-  height: 2rem;
-  width: 2rem;
-  object-fit: contain;
+.section-dashboard__main .user-links div a.available:hover {
+  text-decoration: underline;
+}
+.section-dashboard__main .user-links div .available {
+  color: white;
+}
+.section-dashboard__main .user-links div .unavailable {
+  color: #697c9b;
+}
+.section-dashboard__main .user-links div .blog {
+  text-decoration: none;
+  color: white;
 }
 
 .searchbar {

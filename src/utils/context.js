@@ -4,7 +4,17 @@ import axios from "axios"
 const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  return <AppContext.Provider value={{}}>{children}</AppContext.Provider>
+  const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+
+  })
+
+  const searchGithubUser = async(user) => {
+    
+  }
+
+  return <AppContext.Provider value={{currentUser}}>{children}</AppContext.Provider>
 }
 
 const useGlobalContext = () => {
