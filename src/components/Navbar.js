@@ -1,23 +1,18 @@
 import React, { useState } from "react"
+import { useGlobalContext } from "../utils/context"
 import { SunIcon } from "./icons/Icons"
 
 const Navbar = () => {
-  const [isHovered, setIsHovered] = useState(false)
-  
-
+  const { toggleTheme } = useGlobalContext()
   return (
     <nav>
       <div className="navbar">
         <a className="navbar__site-name" href="#">
           devfinder
         </a>
-        <button
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          className="navbar__toggle"
-        >
+        <button onClick={toggleTheme} className="navbar__toggle">
           Light
-          <SunIcon color={`${isHovered ? "#90A4D4" : "#FFF"}`} />
+          <SunIcon color={`hsl(var(--toggle-btn))`} />
         </button>
       </div>
     </nav>

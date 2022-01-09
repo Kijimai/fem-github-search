@@ -1,6 +1,6 @@
 .searchbar {
   position: relative;
-  background-color: hsl($color-dark-3);
+  background-color: hsl(var(--component-bg));
   padding: 0.65rem 1rem;
   border-radius: 1.5rem;
 
@@ -18,12 +18,12 @@
       background-color: transparent;
       text-overflow: ellipsis;
       border: none;
-      color: hsl($color-white);
+      color: hsl(var(--user-bio-txt));
       font-family: "Space Mono", sans-serif;
 
       &::placeholder {
         font-family: "Space Mono", sans-serif;
-        color: hsl($color-white);
+        color: hsl(var(--user-bio-txt));
       }
 
       &:focus {
@@ -35,7 +35,7 @@
   &__errorMsg {
     visibility: hidden;
     position: absolute;
-    color: hsl($color-error);
+    color: hsl(var(--color-error));
     font-size: 1.5rem;
   }
 }

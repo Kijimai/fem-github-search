@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  font-size: $default-font-size; //10px default || 62.5%
+  font-size: var(--default-font-size); //10px default || 62.5%
 }
 
 *,
@@ -9,13 +9,14 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  transition: background-color 0.2s ease, color 0.1s ease;
 }
 
 body {
   position: relative;
   min-height: 100vh;
   font-family: "Space Mono", sans-serif;
-  background-color: hsl($color-dark-2);
+  background-color: hsl(var(--app-bg));
 }
 
 main {

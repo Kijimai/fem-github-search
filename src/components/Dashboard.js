@@ -48,7 +48,7 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="user-bio">
-          <p>{bio}</p>
+          <p style={bio ? {opacity: 1} : {opacity: 0.75}}>{bio ? `${bio}` : `This profile has no bio`}</p>
         </div>
         <div className="user-stats">
           <div className="user-stats__stat">

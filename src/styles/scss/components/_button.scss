@@ -1,5 +1,5 @@
 .btn {
-  color: hsl($color-white);
+  color: hsl(var(--color-white));
   padding: 2rem 1.6rem;
   font-family: "Space Mono", sans-serif;
   font-size: 1.4rem;
@@ -11,10 +11,10 @@
   transition: 0.3s ease background-color;
 
   &.blue {
-    background-color: hsl($color-primary-blue);
+    background-color: hsl(var(--color-primary-blue));
   }
 
   &.blue:hover {
-    background-color: hsl($color-light-blue);
+    background-color: hsl(var(--color-light-blue));
   }
 }

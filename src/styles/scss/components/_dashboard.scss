@@ -1,9 +1,9 @@
 .section-dashboard {
   padding: 3.2rem 2.4rem;
   margin: 1.6rem 0;
-  background-color: hsl($color-dark-3);
+  background-color: hsl(var(--component-bg));
   border-radius: 1.5rem;
-  color: hsl($color-white);
+  color: hsl(var(--color-white));
 
   @include responsive(reg-desk) {
     display: flex;
@@ -31,6 +31,7 @@
       &__name {
         font-size: 1.6rem;
         line-height: 1;
+        color: hsl(var(--dashboard-txt));
 
         @include responsive(tab-port) {
           font-size: 2.6rem;
@@ -38,7 +39,7 @@
       }
 
       &__github-link {
-        color: hsl($color-primary-blue);
+        color: hsl(var(--color-primary-blue));
         text-decoration: none;
         font-size: 1.3rem;
 
@@ -59,7 +60,7 @@
     .user-bio {
       p {
         font-size: 1.3rem;
-
+        color: hsl(var(--user-bio-txt));
         @include responsive(tab-port) {
           font-size: 1.5rem;
         }
@@ -70,7 +71,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 1.1rem;
-      background-color: hsl($color-dark-2);
+      background-color: hsl(var(--user-stats-bg));
       text-align: center;
       padding: 1.8rem 2rem;
       border-radius: 1rem;
@@ -82,6 +83,8 @@
       }
 
       &__stat {
+        color: hsl(var(--user-text));
+
         @include responsive(tab-port) {
           padding-right: 9rem;
         }
@@ -115,23 +118,28 @@
         flex-wrap: wrap;
         min-width: 20rem;
         gap: 1rem;
-        color: hsl($color-white);
+        color: hsl(var(--color-white));
+
+        svg {
+          background-color: green !important;
+          
+        }
 
         a.available:hover {
           text-decoration: underline;
         }
 
         .available {
-          color: hsl($color-white);
+          color: hsl(var(--user-bio-txt));
         }
 
         .unavailable {
-          color: hsl($color-grey);
+          color: hsl(var(--color-grey));
         }
 
         .blog {
           text-decoration: none;
-          color: hsl($color-white);
+          color: hsl(var(--color-white));
         }
       }
     }
