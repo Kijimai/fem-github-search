@@ -3,6 +3,7 @@
   background-color: hsl(var(--component-bg));
   padding: 0.65rem 1rem;
   border-radius: 1.5rem;
+  box-shadow: var(--box-shadow);
 
   &__form {
     display: flex;

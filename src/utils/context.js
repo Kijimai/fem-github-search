@@ -33,7 +33,7 @@ const AppProvider = ({ children }) => {
     })
 
   return (
-    <AppContext.Provider value={{ currentUser, toggleTheme }}>
+    <AppContext.Provider value={{ currentUser, toggleTheme, theme }}>
       {children}
     </AppContext.Provider>
   )

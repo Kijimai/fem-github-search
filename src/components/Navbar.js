@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { useGlobalContext } from "../utils/context"
-import { SunIcon } from "./icons/Icons"
+import { SunIcon, MoonIcon } from "./icons/Icons"
 
 const Navbar = () => {
-  const { toggleTheme } = useGlobalContext()
+  const { toggleTheme, theme } = useGlobalContext()
   return (
     <nav>
       <div className="navbar">
@@ -11,8 +11,12 @@ const Navbar = () => {
           devfinder
         </a>
         <button onClick={toggleTheme} className="navbar__toggle">
-          Light
-          <SunIcon color={`hsl(var(--toggle-btn))`} />
+          {theme === "light-theme" ? "Dark" : "Light"}
+          {theme === "light-theme" ? (
+            <MoonIcon color={`hsl(var(--toggle-btn))`} />
+          ) : (
+            <SunIcon color={`hsl(var(--toggle-btn))`} />
+          )}
         </button>
       </div>
     </nav>
