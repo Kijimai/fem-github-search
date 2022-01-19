@@ -71,7 +71,7 @@
 
     .user-stats {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       font-size: 1.1rem;
       background-color: hsl(var(--user-stats-bg));
       text-align: center;
@@ -105,24 +105,37 @@
 
     .user-links {
       display: grid;
+      justify-items: start;
       grid-template-columns: 1fr;
       gap: 1.6rem;
       font-size: 1.3rem;
       width: 100%;
+      overflow: hidden;
 
       @include responsive(tab-port) {
-        grid-template-columns: repeat(2, minmax(20rem, 1fr));
+        grid-template-columns: 1fr 1fr;
       }
 
       div {
         display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        min-width: 20rem;
+        flex-wrap: nowrap;
         gap: 1rem;
         color: hsl(var(--color-white));
 
+        & > * {
+          white-space: nowrap;
+        }
+
         svg {
+          fill: hsl(var(--icon-color));
+        }
+
+        svg.available {
+          opacity: 1;
+        }
+
+        svg.unavailable {
+          opacity: 0.5;
         }
 
         a.available:hover {
@@ -130,6 +143,8 @@
         }
 
         .available {
+          display: inline-block;
+          max-width: 25rem;
           color: hsl(var(--user-bio-txt));
         }
 

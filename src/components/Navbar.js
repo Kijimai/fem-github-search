@@ -13,9 +13,9 @@ const Navbar = () => {
         <button onClick={toggleTheme} className="navbar__toggle">
           {theme === "light-theme" ? "Dark" : "Light"}
           {theme === "light-theme" ? (
-            <MoonIcon color={`hsl(var(--toggle-btn))`} />
+            <MoonIcon />
           ) : (
-            <SunIcon color={`hsl(var(--toggle-btn))`} />
+            <SunIcon />
           )}
         </button>
       </div>

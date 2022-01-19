@@ -1,5 +1,9 @@
 import React, { useState, useContext, useEffect } from "react"
 import axios from "axios"
+import { mockData } from "./data"
+const authAxios = axios.create({
+  baseURL: "https://api.github.com/users",
+})
 
 const AppContext = React.createContext()
 
@@ -13,15 +17,30 @@ const getLocalTheme = () => {
 }
 
 const AppProvider = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState({})
+  const [searchValue, setSearchValue] = useState("")
+  const [currentUser, setCurrentUser] = useState(mockData)
   const [theme, setTheme] = useState(getLocalTheme())
+  const [error, setError] = useState({ show: false, message: "" })
 
   useEffect(() => {
     document.documentElement.className = theme
     localStorage.setItem("theme", theme)
   }, [theme])
 
-  const searchGithubUser = async (user) => {}
+  const searchGithubUser = async (e) => {
+    e.preventDefault()
+    await authAxios
+      .get(`/${searchValue}`)
+      .then(({ data }) => {
+        console.log(data)
+        setCurrentUser(data)
+        setSearchValue("")
+      })
+      .catch((err) => {
+        console.log(err)
+        setError(true, "No results.")
+      })
+  }
 
   const toggleTheme = () =>
     setTheme((previousTheme) => {
@@ -33,7 +52,17 @@ const AppProvider = ({ children }) => {
     })
 
   return (
-    <AppContext.Provider value={{ currentUser, toggleTheme, theme }}>
+    <AppContext.Provider
+      value={{
+        currentUser,
+        toggleTheme,
+        theme,
+        searchGithubUser,
+        searchValue,
+        setSearchValue,
+        error,
+      }}
+    >
       {children}
     </AppContext.Provider>
   )

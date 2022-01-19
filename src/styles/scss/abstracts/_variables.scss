@@ -29,6 +29,8 @@
   --user-bio-txt: var(--color-pale-blue);
   --app-name-txt: #222731;
   --toggle-btn: var(--color-grey);
+  --toggle-hover: var(--color-dark-2);
+  --icon-color: var(--color-pale-blue);
 }
 
 .dark-theme {
@@ -40,6 +42,8 @@
   --user-bio-txt: var(--color-white);
   --app-name-txt: var(--color-white);
   --toggle-btn: var(--color-white);
+  --toggle-hover: var(--color-pale-blue);
+  --icon-color: var(--color-white);
 }
 
 // .light-theme {

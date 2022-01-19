@@ -1,8 +1,10 @@
 import React from "react"
+import { useGlobalContext } from "../utils/context"
 import { mockData } from "../utils/data"
 
 const Avatar = (props) => {
-  const { avatar_url } = mockData
+  const { currentUser } = useGlobalContext()
+  const { avatar_url } = currentUser
   // props mode takes either 'mobile' or 'tab-desk'
   return (
     <img

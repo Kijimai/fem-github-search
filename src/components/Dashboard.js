@@ -6,10 +6,13 @@ import {
   WebsiteIcon,
   CompanyIcon,
 } from "./icons/Icons"
-import { mockData } from "../utils/data"
+// import { mockData } from "../utils/data"
 import dayjs from "dayjs"
+import { useGlobalContext } from "../utils/context"
 
 const Dashboard = () => {
+  const { currentUser } = useGlobalContext()
+
   const {
     login,
     name,
@@ -23,10 +26,9 @@ const Dashboard = () => {
     public_repos,
     created_at,
     twitter_username,
-  } = mockData
+  } = currentUser
 
   const createdDate = dayjs(created_at).format("DD MMM YYYY")
-  console.log(createdDate)
 
   return (
     <section className="section section-dashboard">
@@ -48,7 +50,9 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="user-bio">
-          <p style={bio ? {opacity: 1} : {opacity: 0.75}}>{bio ? `${bio}` : `This profile has no bio`}</p>
+          <p style={bio ? { opacity: 1 } : { opacity: 0.75 }}>
+            {bio ? `${bio}` : `This profile has no bio`}
+          </p>
         </div>
         <div className="user-stats">
           <div className="user-stats__stat">
@@ -69,24 +73,32 @@ const Dashboard = () => {
         </div>
         <div className="user-links">
           <div>
-            <LocationIcon color={location ? `#fff` : `#697c9b`} />
+            <LocationIcon iconClass={location ? `available` : `unavailable`} />
             <p className={location ? `available` : `unavailable`}>
               {location || "Not Available"}
             </p>
           </div>
           <div>
-            <WebsiteIcon color={blog ? `#fff` : `#697c9b`} />
-            <a
-              className={blog ? `available` : `unavailable`}
-              href={blog}
-              target="_blank"
-              rel="noreferrer noopener"
-            >
-              {blog}
-            </a>
+            <WebsiteIcon iconClass={blog ? `available` : `unavailable`} />
+            {blog ? (
+              <a
+                className={blog ? `available` : `unavailable`}
+                href={blog}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                {blog}
+              </a>
+            ) : (
+              <p className={blog ? `available` : `unavailable`}>
+                Not Available
+              </p>
+            )}
           </div>
           <div>
-            <TwitterIcon color={twitter_username ? `#fff` : `#697c9b`} />
+            <TwitterIcon
+              iconClass={twitter_username ? `available` : `unavailable`}
+            />
             <a
               className={twitter_username ? `available` : `unavailable`}
               href={`https://twitter.com/${twitter_username}`}
@@ -97,7 +109,7 @@ const Dashboard = () => {
             </a>
           </div>
           <div>
-            <CompanyIcon color={company ? `#fff` : `#697c9b`} />
+            <CompanyIcon iconClass={company ? `available` : `unavailable`} />
             <p className={company ? `available` : `unavailable`}>
               {company ? `@${company}` : "Not Available"}
             </p>

@@ -23,6 +23,8 @@
   --user-bio-txt: var(--color-pale-blue);
   --app-name-txt: #222731;
   --toggle-btn: var(--color-grey);
+  --toggle-hover: var(--color-dark-2);
+  --icon-color: var(--color-pale-blue);
 }
 
 .dark-theme {
@@ -34,6 +36,8 @@
   --user-bio-txt: var(--color-white);
   --app-name-txt: var(--color-white);
   --toggle-btn: var(--color-white);
+  --toggle-hover: var(--color-pale-blue);
+  --icon-color: var(--color-white);
 }
 
 html {
@@ -153,7 +157,7 @@ ul {
 }
 .section-dashboard__main .user-stats {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   font-size: 1.1rem;
   background-color: hsl(var(--user-stats-bg));
   text-align: center;
@@ -187,28 +191,42 @@ ul {
 }
 .section-dashboard__main .user-links {
   display: grid;
+  justify-items: start;
   grid-template-columns: 1fr;
   gap: 1.6rem;
   font-size: 1.3rem;
   width: 100%;
+  overflow: hidden;
 }
 @media (min-width: 600px) {
   .section-dashboard__main .user-links {
-    grid-template-columns: repeat(2, minmax(20rem, 1fr));
+    grid-template-columns: 1fr 1fr;
   }
 }
 .section-dashboard__main .user-links div {
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  min-width: 20rem;
+  flex-wrap: nowrap;
   gap: 1rem;
   color: hsl(var(--color-white));
+}
+.section-dashboard__main .user-links div > * {
+  white-space: nowrap;
+}
+.section-dashboard__main .user-links div svg {
+  fill: hsl(var(--icon-color));
+}
+.section-dashboard__main .user-links div svg.available {
+  opacity: 1;
+}
+.section-dashboard__main .user-links div svg.unavailable {
+  opacity: 0.5;
 }
 .section-dashboard__main .user-links div a.available:hover {
   text-decoration: underline;
 }
 .section-dashboard__main .user-links div .available {
+  display: inline-block;
+  max-width: 25rem;
   color: hsl(var(--user-bio-txt));
 }
 .section-dashboard__main .user-links div .unavailable {
@@ -260,6 +278,7 @@ ul {
   display: inline-flex;
   align-items: center;
   font-size: 1.3rem;
+  letter-spacing: 2.5px;
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Space Mono", sans-serif;
@@ -270,8 +289,14 @@ ul {
   padding: 0.5rem 1rem;
   cursor: pointer;
 }
+.navbar__toggle svg {
+  fill: hsl(var(--toggle-btn));
+}
 .navbar__toggle:hover {
-  color: hsl(var(--color-grey));
+  color: hsl(var(--toggle-hover));
+}
+.navbar__toggle:hover svg {
+  fill: hsl(var(--toggle-hover));
 }
 
 .btn {
