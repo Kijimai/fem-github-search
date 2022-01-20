@@ -2,7 +2,8 @@ import React from "react"
 import { search } from "../assets/assets"
 import { useGlobalContext } from "../utils/context"
 const Searchbar = () => {
-  const { searchGithubUser, searchValue, setSearchValue } = useGlobalContext()
+  const { searchGithubUser, searchValue, setSearchValue, error, setError } =
+    useGlobalContext()
 
   return (
     <>
@@ -15,14 +16,17 @@ const Searchbar = () => {
             id="search"
             className="search"
             type="text"
-            placeholder="Search Github username"
+            placeholder={error.show === true ? "" : "Search Github username"}
             value={searchValue}
             spellCheck="false"
-            onChange={(e) => setSearchValue(e.target.value)}
+            onChange={(e) => {
+              setError(false, "")
+              setSearchValue(e.target.value)
+            }}
           />
           <button className="btn blue">Search</button>
         </form>
-        <span className="searchbar__errorMsg">No Results</span>
+        <span className="searchbar__errorMsg">{error && error.message}</span>
       </div>
     </>
   )

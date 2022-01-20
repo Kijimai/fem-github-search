@@ -34,8 +34,12 @@
   }
 
   &__errorMsg {
-    visibility: hidden;
+    user-select: none;
+    pointer-events: none;
     position: absolute;
+    font-weight: 600;
+    right: 12rem;
+    top: 35%;
     color: hsl(var(--color-error));
     font-size: 1.5rem;
   }

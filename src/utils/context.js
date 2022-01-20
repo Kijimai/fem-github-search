@@ -27,19 +27,26 @@ const AppProvider = ({ children }) => {
     localStorage.setItem("theme", theme)
   }, [theme])
 
+  const toggleError = (show = false, message = "") => {
+    setError({ show, message })
+  }
+
   const searchGithubUser = async (e) => {
     e.preventDefault()
-    await authAxios
+    toggleError()
+    const response = await authAxios
       .get(`/${searchValue}`)
-      .then(({ data }) => {
-        console.log(data)
-        setCurrentUser(data)
-        setSearchValue("")
-      })
-      .catch((err) => {
-        console.log(err)
-        setError(true, "No results.")
-      })
+      .catch((err) => console.log(err))
+
+    if (response) {
+      const { data } = response
+      console.log(data)
+      setCurrentUser(data)
+      setSearchValue("")
+    } else {
+      setSearchValue("")
+      toggleError(true, "No results")
+    }
   }
 
   const toggleTheme = () =>
@@ -61,6 +68,7 @@ const AppProvider = ({ children }) => {
         searchValue,
         setSearchValue,
         error,
+        setError
       }}
     >
       {children}
