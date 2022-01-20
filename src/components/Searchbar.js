@@ -2,7 +2,7 @@ import React from "react"
 import { search } from "../assets/assets"
 import { useGlobalContext } from "../utils/context"
 const Searchbar = () => {
-  const { searchGithubUser, searchValue, setSearchValue, setCurrentUser } = useGlobalContext()
+  const { searchGithubUser, searchValue, setSearchValue } = useGlobalContext()
 
   return (
     <>

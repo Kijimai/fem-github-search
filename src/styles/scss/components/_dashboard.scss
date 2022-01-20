@@ -9,6 +9,7 @@
   @include responsive(reg-desk) {
     display: flex;
     gap: 3rem;
+    padding: 4.8rem;
   }
 
   &__main {
@@ -29,6 +30,16 @@
       flex-direction: column;
       justify-content: center;
 
+      
+
+      @include responsive(reg-desk) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-between;
+        align-items: center;
+      }
+
       &__name {
         font-size: 1.6rem;
         line-height: 1;
@@ -47,6 +58,10 @@
         @include responsive(tab-port) {
           font-size: 1.6rem;
         }
+
+        @include responsive(reg-desk) {
+          order: 3;
+        }
       }
 
       &__date {
@@ -55,6 +70,11 @@
 
         @include responsive(tab-port) {
           font-size: 1.5rem;
+        }
+
+        @include responsive(reg-desk) {
+          order: 2;
+          text-align: right;
         }
       }
     }
