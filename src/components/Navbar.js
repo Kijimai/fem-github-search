@@ -7,9 +7,9 @@ const Navbar = () => {
   return (
     <nav>
       <div className="navbar">
-        <a className="navbar__site-name" href="#">
+        <h1 className="navbar__site-name">
           devfinder
-        </a>
+        </h1>
         <button onClick={toggleTheme} className="navbar__toggle">
           {theme === "light-theme" ? "Dark" : "Light"}
           {theme === "light-theme" ? (
